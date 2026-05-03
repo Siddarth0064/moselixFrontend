@@ -1,0 +1,130 @@
+.footer {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 3rem 0 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer-brand p {
+  color: #9ca3af;
+  margin: 1rem 0 1.5rem;
+  max-width: 300px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-links a {
+  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.05);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.nav-col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.nav-col a {
+  display: block;
+  color: #9ca3af;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.nav-col a:hover {
+  color: var(--primary-light);
+}
+
+.nav-col p {
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.subscribe-form input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.subscribe-form button {
+  background: var(--primary);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.2rem 0;
+}
+
+.bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.bottom-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.bottom-links a:hover {
+  color: var(--white);
+}
+
+@media (max-width: 968px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-nav {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
