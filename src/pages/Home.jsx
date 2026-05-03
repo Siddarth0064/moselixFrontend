@@ -19,21 +19,17 @@ const Home = ({ onOpenModal }) => {
       <section className="hero">
         <div className="container hero-grid">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="hero-text-content"
           >
             <span className="hero-top-badge">100% ONLINE COACHING</span>
             <h1 className="hero-main-title">
-              Not just courses.<br />
-              A complete <span className="gradient-text">VLSI</span><br />
-              <span className="gradient-text">career path.</span>
+              Not just courses. A complete <span className="gradient-text">VLSI career path.</span>
             </h1>
             <p className="hero-subtext">
-              Structured online coaching with real tools, expert <br />
-              mentorship and continuous career support to <br />
-              help you become industry-ready.
+              Structured online coaching with real tools, expert mentorship and continuous career support to help you become industry-ready.
             </p>
 
             <div className="hero-stats-row">
@@ -106,8 +102,14 @@ const Home = ({ onOpenModal }) => {
           </div>
 
           <div className="growth-grid">
-            {/* Card 1 */}
-            <div className="growth-card growth-purple">
+            {/* Card 1 - Left Bounded */}
+            <motion.div 
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="growth-card growth-purple"
+            >
               <div className="growth-content">
                 <h3 className="growth-card-title">Advanced<br />Learning System</h3>
                 <p className="growth-card-desc">A complete online learning environment built for VLSI learners.</p>
@@ -119,10 +121,16 @@ const Home = ({ onOpenModal }) => {
                 </ul>
               </div>
               <img src="/moselix_learning_system.png" alt="Learning System" className="growth-img" />
-            </div>
+            </motion.div>
 
-            {/* Card 2 */}
-            <div className="growth-card growth-beige">
+            {/* Card 2 - Bottom Bounded */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="growth-card growth-beige"
+            >
               <div className="growth-content">
                 <h3 className="growth-card-title">Expert<br />Coaching</h3>
                 <p className="growth-card-desc">Learn directly from engineers working in real VLSI projects.</p>
@@ -133,10 +141,16 @@ const Home = ({ onOpenModal }) => {
                 </ul>
               </div>
               <img src="/moselix_expert_coaching.png" alt="Expert Coaching" className="growth-img" />
-            </div>
+            </motion.div>
 
-            {/* Card 3 */}
-            <div className="growth-card growth-green">
+            {/* Card 3 - Right Bounded */}
+            <motion.div 
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="growth-card growth-green"
+            >
               <div className="growth-content">
                 <h3 className="growth-card-title">Career<br />Support</h3>
                 <p className="growth-card-desc">We guide you at every step until you're placed.</p>
@@ -157,7 +171,7 @@ const Home = ({ onOpenModal }) => {
                   <p className="testimonial-role">Physical Design Engineer</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -165,7 +179,13 @@ const Home = ({ onOpenModal }) => {
       <section className="industry-workflow">
         <div className="container i-w-grid">
 
-          <div className="workflow-steps-col">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="workflow-steps-col"
+          >
             <h3 className="i-w-title">From learning to industry</h3>
             <div className="workflow-flow">
               <div className="w-step">
@@ -188,9 +208,15 @@ const Home = ({ onOpenModal }) => {
                 <p>Prepare for interviews<br />& opportunities</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="workflow-tools-col">
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="workflow-tools-col"
+          >
             <h3 className="i-w-title">Learn using<br />industry-standard tools</h3>
             <p className="i-w-desc">Work with tools used in real<br />semiconductor workflows.</p>
             <div className="tools-list">
@@ -221,15 +247,28 @@ const Home = ({ onOpenModal }) => {
                 <span>Git</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Companies Logos */}
       <section className="companies-section">
         <div className="container">
-          <h3 className="companies-title">Connected with leading semiconductor companies</h3>
-          <div className="companies-strip">
+          <motion.h3 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="companies-title"
+          >
+            Connected with leading semiconductor companies
+          </motion.h3>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="companies-strip"
+          >
             <span className="c-logo c-synopsys">SYNOPSYS</span>
             <span className="c-logo c-cadence">cādence</span>
             <span className="c-logo c-siemens">SIEMENS</span>
@@ -237,7 +276,7 @@ const Home = ({ onOpenModal }) => {
             <span className="c-logo c-micron">Micron</span>
             <span className="c-logo c-qualcomm">Qualcomm</span>
             <span className="c-logo c-amd">AMD</span>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -250,8 +289,14 @@ const Home = ({ onOpenModal }) => {
           </div>
 
           <div className="testimonials-grid">
-            {/* T Card 1 */}
-            <div className="t-card">
+            {/* T Card 1 - Left Stagger */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50, x: -20 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="t-card"
+            >
               <span className="t-quote-mark">“</span>
               <p className="t-text">Moselix helped me move from confusion to clarity in VLSI. The projects and mentor support were game-changing.</p>
               <div className="t-user">
@@ -261,10 +306,16 @@ const Home = ({ onOpenModal }) => {
                   <span>RTL Design Engineer</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* T Card 2 */}
-            <div className="t-card">
+            {/* T Card 2 - Center Stagger */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="t-card"
+            >
               <span className="t-quote-mark">“</span>
               <p className="t-text">Structured learning, real tools and doubt support made a big difference. Highly recommended!</p>
               <div className="t-user">
@@ -274,10 +325,16 @@ const Home = ({ onOpenModal }) => {
                   <span>Verification Engineer</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* T Card 3 */}
-            <div className="t-card">
+            {/* T Card 3 - Right Stagger */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50, x: 20 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="t-card"
+            >
               <span className="t-quote-mark">“</span>
               <p className="t-text">The career guidance and interview preparation helped me crack interviews with top companies.</p>
               <div className="t-user">
@@ -287,14 +344,20 @@ const Home = ({ onOpenModal }) => {
                   <span>Physical Design Engineer</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <div className="cta-card">
+          <motion.div 
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+            className="cta-card"
+          >
             <div className="cta-content-wrapper">
               <div className="cta-text-group">
                 <h2>Ready to start your VLSI journey?</h2>
@@ -308,7 +371,7 @@ const Home = ({ onOpenModal }) => {
               <div className="cta-gradient-fade"></div>
               <img src="/cta_cityscape_bg.png" alt="Future Cityscape" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

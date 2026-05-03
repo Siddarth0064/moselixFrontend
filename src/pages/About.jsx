@@ -88,14 +88,26 @@ const About = () => {
           {/* Our Story */}
           <div className="about-card home-story-section">
             <div className="home-story-grid">
-              <div className="story-text">
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="story-text"
+              >
                 <span className="section-label">OUR STORY</span>
                 <h2>From a Small Idea <br /> to a <span className="gradient-text">Lasting Impact</span></h2>
                 <p>Moselix was born out of a simple realization — VLSI education needs more than just theory; it needs mentorship, practical exposure and continuous support.</p>
                 <p>We started this platform to bridge the gap between classroom learning and industry expectations. Today, Moselix is a community of learners, mentors and industry professionals working together to create future-ready engineers.</p>
                 <div className="signature">— Team Moselix</div>
-              </div>
-              <div className="story-image-wrapper">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="story-image-wrapper"
+              >
                 <div className="story-image">
                   <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
                 </div>
@@ -105,17 +117,29 @@ const About = () => {
                   <Quote className="quote-icon start" size={24} fill="currentColor" />
 
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Our Mission */}
           <div className="about-card home-mission-section">
             <div className="home-mission-grid">
-              <div className="mission-visual">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, x: -30 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="mission-visual"
+              >
                 <img src="/mission_visual.png" alt="Mission Target" />
-              </div>
-              <div className="mission-text">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="mission-text"
+              >
                 <span className="section-label">OUR MISSION</span>
                 <h2>Empower. Educate. Elevate.</h2>
                 <p>To empower aspiring engineers with industry-relevant skills, practical exposure and continuous support to help them build successful careers in VLSI.</p>
@@ -138,44 +162,44 @@ const About = () => {
                     <span>Career Guidance & Support</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
           {/* Our Values */}
           <div className="about-card home-values-section">
-            <span className="section-label">OUR VALUES</span>
-            <h2>The Principles That Drive <br /> Everything We Do.</h2>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="section-label">OUR VALUES</span>
+              <h2>The Principles That Drive <br /> Everything We Do.</h2>
+            </motion.div>
 
             <div className="home-values-grid">
-              <div className="home-value-card">
-                <div className="v-icon"><Shield size={32} /></div>
-                <div className="v-text">
-                  <h3>Integrity</h3>
-                  <p>We are honest, transparent and ethical.</p>
-                </div>
-              </div>
-              <div className="home-value-card">
-                <div className="v-icon"><Heart size={32} /></div>
-                <div className="v-text">
-                  <h3>Passion</h3>
-                  <p>We are passionate about teaching and your success.</p>
-                </div>
-              </div>
-              <div className="home-value-card">
-                <div className="v-icon"><Star size={32} /></div>
-                <div className="v-text">
-                  <h3>Excellence</h3>
-                  <p>We strive for excellence in everything.</p>
-                </div>
-              </div>
-              <div className="home-value-card">
-                <div className="v-icon"><Users size={32} /></div>
-                <div className="v-text">
-                  <h3>Community</h3>
-                  <p>We grow together as a learning community.</p>
-                </div>
-              </div>
+              {[
+                { icon: <Shield size={32} />, title: "Integrity", desc: "We are honest, transparent and ethical." },
+                { icon: <Heart size={32} />, title: "Passion", desc: "We are passionate about teaching and your success." },
+                { icon: <Star size={32} />, title: "Excellence", desc: "We strive for excellence in everything." },
+                { icon: <Users size={32} />, title: "Community", desc: "We grow together as a learning community." }
+              ].map((value, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="home-value-card"
+                >
+                  <div className="v-icon">{value.icon}</div>
+                  <div className="v-text">
+                    <h3>{value.title}</h3>
+                    <p>{value.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 {
   "name": "moselix",
+  "homepage": "https://moselix.com/public_html/",
   "private": true,
   "version": "0.0.0",
   "type": "module",

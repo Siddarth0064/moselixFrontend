@@ -69,11 +69,32 @@ const Careers = ({ onOpenModal }) => {
       <section className="courses-hero">
         {/* Decorations */}
         <div className="hero-decorations">
-          <div className="dot-square top-right"></div>
-          <div className="dot-square bottom-left"></div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 1 }}
+            className="dot-square top-right"
+          ></motion.div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="dot-square bottom-left"
+          ></motion.div>
           
           {/* Analog Chip Design SVG */}
-          <div className="analog-chip-bg">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
+            transition={{ 
+              duration: 1.5, 
+              ease: "easeOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 0.5
+            }}
+            className="analog-chip-bg"
+          >
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="50" y="50" width="100" height="100" rx="10" stroke="rgba(108, 58, 237, 0.4)" strokeWidth="4" fill="rgba(108, 58, 237, 0.1)" />
               <rect x="65" y="65" width="70" height="70" rx="5" stroke="rgba(108, 58, 237, 0.5)" strokeWidth="2" />
@@ -87,17 +108,27 @@ const Careers = ({ onOpenModal }) => {
               <circle cx="100" cy="100" r="15" fill="rgba(108, 58, 237, 0.2)" stroke="rgba(108, 58, 237, 0.6)" strokeWidth="2" />
               <path d="M85 85 L115 115 M115 85 L85 115" stroke="rgba(108, 58, 237, 0.4)" strokeWidth="2" />
             </svg>
-          </div>
+          </motion.div>
         </div>
 
         <div className="container courses-hero-content">
-          <div className="courses-hero-text">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="courses-hero-text"
+          >
             <h1>Choose Your Path. <br /> Build <span className="gradient-text">Your Future.</span></h1>
             <p>Industry-aligned programs with real-world projects, expert mentors and career support.</p>
-          </div>
-          <div className="courses-hero-visual">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="courses-hero-visual"
+          >
             <img src="/hero_vlsi.png" alt="VLSI Training" />
-          </div>
+          </motion.div>
         </div>
 
       </section>
@@ -190,14 +221,27 @@ const Careers = ({ onOpenModal }) => {
       {/* Comparison Section */}
       <section className="comparison-section">
         <div className="container">
-          <div className="section-header text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="section-header text-center"
+          >
             <h2 className="comparison-title">
               <span className="dots">::::</span> Which VLSI <span className="underline">Path</span> Fits You Best? <span className="dots">::::</span>
             </h2>
-          </div>
+          </motion.div>
           <div className="comp-grid">
-            {comparisonData.map((item) => (
-              <div className={`comp-card theme-${item.color}`} key={item.id}>
+            {comparisonData.map((item, index) => (
+              <motion.div 
+                key={item.id}
+                initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -2 : 2 }}
+                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className={`comp-card theme-${item.color}`}
+              >
                 <div className="comp-card-top">
                   <div className="comp-icon">{item.icon}</div>
                   <div className="comp-header-text">
@@ -216,7 +260,7 @@ const Careers = ({ onOpenModal }) => {
                 </div>
 
                 <div className="comp-badge">{item.badge}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -225,39 +269,65 @@ const Careers = ({ onOpenModal }) => {
       {/* Features Section */}
       <section className="features-section">
         <div className="container">
-          <div className="section-header text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-header text-center"
+          >
             <h2 className="features-title">
               Learn. <span className="underline">Practice.</span> Succeed.
             </h2>
-          </div>
+          </motion.div>
           
           <div className="features-grid">
-            <div className="feature-card" style={{ backgroundImage: `url('/feature_learn_experts.png')` }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="feature-card" 
+              style={{ backgroundImage: `url('/feature_learn_experts.png')` }}
+            >
               <div className="feature-overlay"></div>
               <div className="feature-content">
                 <div className="feature-icon"><Users /></div>
                 <h3>Learn from Experts</h3>
                 <p>Live sessions with industry mentors who guide you at every step.</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="feature-card" style={{ backgroundImage: `url('/feature_hands_on.png')` }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="feature-card" 
+              style={{ backgroundImage: `url('/feature_hands_on.png')` }}
+            >
               <div className="feature-overlay"></div>
               <div className="feature-content">
                 <div className="feature-icon"><Code /></div>
                 <h3>Hands-on Projects</h3>
                 <p>Work on real-world VLSI projects and build practical skills.</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="feature-card" style={{ backgroundImage: `url('/feature_career_ready.png')` }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="feature-card" 
+              style={{ backgroundImage: `url('/feature_career_ready.png')` }}
+            >
               <div className="feature-overlay"></div>
               <div className="feature-content">
                 <div className="feature-icon"><Briefcase /></div>
                 <h3>Career Ready</h3>
                 <p>Get placement support, interview prep and career guidance.</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -265,7 +335,13 @@ const Careers = ({ onOpenModal }) => {
       {/* Bottom CTA */}
       <section className="bottom-cta">
         <div className="container">
-          <div className="cta-banner">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+            className="cta-banner"
+          >
             <div className="cta-left">
               <div className="cta-icon-box">
                 <Lightbulb size={28} />
@@ -280,7 +356,7 @@ const Careers = ({ onOpenModal }) => {
                 <MessageCircle size={18} /> Talk to Advisor
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

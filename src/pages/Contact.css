@@ -175,7 +175,7 @@
 }
 
 
-.hero-subtext {
+.contact-hero .hero-subtext {
   font-size: 1.1rem;
   color: #94a3b8;
   max-width: 600px;
@@ -525,7 +525,7 @@
   color: white;
 }
 
-.hero-main-title {
+.contact-hero .hero-main-title {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
