@@ -6,8 +6,8 @@
   background-color: #0b0f19;
   /* Very dark blue from image */
   color: var(--white);
-  padding: 60px 0 100px;
-  /* Minimized padding */
+  padding: 40px 0 40px;
+  /* Minimized padding for compact view */
   overflow: hidden;
   position: relative;
 }
@@ -48,7 +48,7 @@
   color: #8b5cf6;
   font-weight: 700;
   font-size: 0.85rem;
-  margin: 0 0 0.8rem 0;
+  margin: 2rem 0 0.3rem 0;
   padding: 0;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -128,7 +128,6 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.2rem 0 0 0;
   margin: 0;
 }
@@ -137,9 +136,20 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem 0.5rem 0;
   border-radius: 12px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.h-feat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -0.75rem;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .h-feat-item:hover {
@@ -147,8 +157,8 @@
 }
 
 .h-feat-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   background: rgba(139, 92, 246, 0.1);
   border: 1px solid rgba(139, 92, 246, 0.2);
   border-radius: 12px;
@@ -180,13 +190,14 @@
 .hero-visual {
   position: absolute;
   right: 0;
-  top: 120px;
+  /* 120 ,width :50, max-height:500*/
+  top: 100px;
   /* Aligns with new padding-top */
-  width: 50vw;
-  /* Takes 50% of screen width */
+  width: 56vw;
+  /* Takes 56% of screen width */
   height: calc(100% - 100px);
   /* Height leaves room for padding */
-  max-height: 500px;
+  max-height: 600px;
   /* Increased max-height for better visibility */
   display: flex;
   justify-content: flex-end;

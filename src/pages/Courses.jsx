@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Download, ArrowRight, PlayCircle, BookOpen, Monitor, Terminal, Lightbulb, ShieldCheck, Cpu, Activity, Users, Code, Briefcase, MessageCircle } from 'lucide-react';
-import './Careers.css';
+import './Courses.css';
 
-const Careers = ({ onOpenModal }) => {
+const Courses = ({ onOpenModal }) => {
   const [activeTab, setActiveTab] = useState('design');
 
   const tabs = [
@@ -69,25 +69,25 @@ const Careers = ({ onOpenModal }) => {
       <section className="courses-hero">
         {/* Decorations */}
         <div className="hero-decorations">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ duration: 1 }}
             className="dot-square top-right"
           ></motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             transition={{ duration: 1, delay: 0.2 }}
             className="dot-square bottom-left"
           ></motion.div>
-          
+
           {/* Analog Chip Design SVG */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={{ opacity: 0.15, scale: 1, rotate: 0 }}
-            transition={{ 
-              duration: 1.5, 
+            transition={{
+              duration: 1.5,
               ease: "easeOut",
               repeat: Infinity,
               repeatType: "reverse",
@@ -103,7 +103,7 @@ const Careers = ({ onOpenModal }) => {
               <path d="M150 70h10m-10 20h10m-10 20h10m-10 20h10" stroke="rgba(108, 58, 237, 0.5)" strokeWidth="4" strokeLinecap="round" />
               <path d="M70 40v10m20-10v10m20-10v10m20-10v10" stroke="rgba(108, 58, 237, 0.5)" strokeWidth="4" strokeLinecap="round" />
               <path d="M70 150v10m20-10v10m20-10v10m20-10v10" stroke="rgba(108, 58, 237, 0.5)" strokeWidth="4" strokeLinecap="round" />
-              
+
               {/* Central Processor Lines */}
               <circle cx="100" cy="100" r="15" fill="rgba(108, 58, 237, 0.2)" stroke="rgba(108, 58, 237, 0.6)" strokeWidth="2" />
               <path d="M85 85 L115 115 M115 85 L85 115" stroke="rgba(108, 58, 237, 0.4)" strokeWidth="2" />
@@ -112,40 +112,45 @@ const Careers = ({ onOpenModal }) => {
         </div>
 
         <div className="container courses-hero-content">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="courses-hero-text"
           >
-            <h1>Choose Your Path. <br /> Build <span className="gradient-text">Your Future.</span></h1>
+            <h1 className="courses-hero-title">
+              Choose Your Path. <br />
+              Build <span className="brand-purple-text">Your Future.</span>
+            </h1>
             <p>Industry-aligned programs with real-world projects, expert mentors and career support.</p>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="courses-hero-visual"
           >
-            <img src="/hero_vlsi.png" alt="VLSI Training" />
+            <img src="/courses_hero_Sec_Pic.jpeg" alt="Mentorship and Practical Training" />
           </motion.div>
         </div>
 
+        {/* Smooth Wave Transition - Fixed edge clipping */}
+        <div className="section-transition">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+            {/* The Fill Layer (No Stroke) */}
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill-only"></path>
+            {/* The Wave Line Layer (Stroke only, no closing lines) */}
+            <path d="M0,27.35 A600.21,600.21,0,0,0,321.39,56.44 c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3" className="shape-stroke-only" fill="none"></path>
+          </svg>
+        </div>
       </section>
-
-      {/* Smooth Wave Transition */}
-      <div className="section-transition">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
-        </svg>
-      </div>
 
       {/* Course Tabs Section */}
       <section className="path-selector">
         <div className="container">
           <div className="tabs-container">
             {tabs.map((tab) => (
-              <button 
+              <button
                 key={tab.id}
                 className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
@@ -157,7 +162,7 @@ const Careers = ({ onOpenModal }) => {
           </div>
 
           <div className="tab-content-wrapper">
-            <motion.div 
+            <motion.div
               key={activeTab}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -166,7 +171,7 @@ const Careers = ({ onOpenModal }) => {
               <div className="main-content">
                 <h2>{content[activeTab].title}</h2>
                 <p className="tab-desc">{content[activeTab].desc}</p>
-                
+
                 <div className="content-details-grid">
                   <div className="work-section">
                     <h4>What you'll work on</h4>
@@ -208,7 +213,7 @@ const Careers = ({ onOpenModal }) => {
                     );
                   </code>
                 </div>
-                
+
                 <div className="waveform-container">
                   <img src="/digital_waveform.png" alt="VLSI Timing Waveform" className="waveform-img" />
                 </div>
@@ -221,7 +226,7 @@ const Careers = ({ onOpenModal }) => {
       {/* Comparison Section */}
       <section className="comparison-section">
         <div className="container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -234,7 +239,7 @@ const Careers = ({ onOpenModal }) => {
           </motion.div>
           <div className="comp-grid">
             {comparisonData.map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -2 : 2 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 0 }}
@@ -249,7 +254,7 @@ const Careers = ({ onOpenModal }) => {
                     <p>{item.desc}</p>
                   </div>
                 </div>
-                
+
                 <div className="comp-likes">
                   <p className="likes-title">You like:</p>
                   <ul>
@@ -269,7 +274,7 @@ const Careers = ({ onOpenModal }) => {
       {/* Features Section */}
       <section className="features-section">
         <div className="container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -279,14 +284,14 @@ const Careers = ({ onOpenModal }) => {
               Learn. <span className="underline">Practice.</span> Succeed.
             </h2>
           </motion.div>
-          
+
           <div className="features-grid">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="feature-card" 
+              className="feature-card"
               style={{ backgroundImage: `url('/feature_learn_experts.png')` }}
             >
               <div className="feature-overlay"></div>
@@ -297,12 +302,12 @@ const Careers = ({ onOpenModal }) => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="feature-card" 
+              className="feature-card"
               style={{ backgroundImage: `url('/feature_hands_on.png')` }}
             >
               <div className="feature-overlay"></div>
@@ -313,12 +318,12 @@ const Careers = ({ onOpenModal }) => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="feature-card" 
+              className="feature-card"
               style={{ backgroundImage: `url('/feature_career_ready.png')` }}
             >
               <div className="feature-overlay"></div>
@@ -335,7 +340,7 @@ const Careers = ({ onOpenModal }) => {
       {/* Bottom CTA */}
       <section className="bottom-cta">
         <div className="container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -363,4 +368,4 @@ const Careers = ({ onOpenModal }) => {
   );
 };
 
-export default Careers;
+export default Courses;

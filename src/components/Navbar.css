@@ -261,3 +261,35 @@
   text-shadow: 0 0 10px rgba(167, 139, 250, 0.4);
   letter-spacing: 2px;
 }
+
+/* Course Page Specific Styling (Light Theme Navbar) */
+.navbar.is-courses:not(.scrolled) .brand {
+  color: #0f172a;
+}
+
+.navbar.is-courses:not(.scrolled) .tagline {
+  color: #475569;
+}
+
+.navbar.is-courses:not(.scrolled) .nav-links a {
+  color: #334155;
+}
+
+.navbar.is-courses:not(.scrolled) .nav-links a:hover,
+.navbar.is-courses:not(.scrolled) .nav-links a.active {
+  color: var(--primary);
+}
+
+.navbar.is-courses:not(.scrolled) .btn-advisor {
+  color: #0f172a;
+  border-color: #0f172a;
+}
+
+.navbar.is-courses:not(.scrolled) .btn-advisor:hover {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.navbar.is-courses:not(.scrolled) .mobile-menu {
+  color: #0f172a;
+}

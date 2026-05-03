@@ -26,10 +26,10 @@ const Home = ({ onOpenModal }) => {
           >
             <span className="hero-top-badge">100% ONLINE COACHING</span>
             <h1 className="hero-main-title">
-              Not just courses. A complete <span className="gradient-text">VLSI career path.</span>
+              Not just courses. A complete <span className="gradient-text">VLSI </span> <br /> <span className="gradient-text">career path.</span>
             </h1>
             <p className="hero-subtext">
-              Structured online coaching with real tools, expert mentorship and continuous career support to help you become industry-ready.
+              Structured online coaching with real tools, expert <br /> mentorship and continuous career support to <br /> help you become industry-ready.
             </p>
 
             <div className="hero-stats-row">
@@ -46,21 +46,21 @@ const Home = ({ onOpenModal }) => {
 
             <div className="hero-features-row">
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Code size={20} /></div>
+                <div className="h-feat-icon-box"><Code size={24} /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Real Projects</span>
                   <span className="h-feat-desc">Hands-on learning</span>
                 </div>
               </div>
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Users size={20} /></div>
+                <div className="h-feat-icon-box"><Users size={24} /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Expert Mentors</span>
                   <span className="h-feat-desc">From top companies</span>
                 </div>
               </div>
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Briefcase size={20} /></div>
+                <div className="h-feat-icon-box"><Briefcase size={24} color="rgb(255, 215, 0)" /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Career Support</span>
                   <span className="h-feat-desc">Till you get placed</span>
@@ -83,11 +83,11 @@ const Home = ({ onOpenModal }) => {
         </div>
 
         {/* Stylish Wave Transition */}
-        <div className="section-transition-wave">
+        {/* <div className="section-transition-wave">
           <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
             <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 36.7C840 27 960 13 1080 16.7C1200 20 1320 40 1380 50L1440 60V90H1380C1320 90 1200 90 1080 90C960 90 840 90 720 90C600 90 480 90 360 90C240 90 120 90 60 90H0V0Z" fill="#F8FAFF" />
           </svg>
-        </div>
+        </div> */}
       </section>
 
 
@@ -103,7 +103,7 @@ const Home = ({ onOpenModal }) => {
 
           <div className="growth-grid">
             {/* Card 1 - Left Bounded */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -124,7 +124,7 @@ const Home = ({ onOpenModal }) => {
             </motion.div>
 
             {/* Card 2 - Bottom Bounded */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -144,7 +144,7 @@ const Home = ({ onOpenModal }) => {
             </motion.div>
 
             {/* Card 3 - Right Bounded */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -179,7 +179,7 @@ const Home = ({ onOpenModal }) => {
       <section className="industry-workflow">
         <div className="container i-w-grid">
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -210,7 +210,7 @@ const Home = ({ onOpenModal }) => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -254,7 +254,7 @@ const Home = ({ onOpenModal }) => {
       {/* Companies Logos */}
       <section className="companies-section">
         <div className="container">
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -262,7 +262,7 @@ const Home = ({ onOpenModal }) => {
           >
             Connected with leading semiconductor companies
           </motion.h3>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -290,7 +290,7 @@ const Home = ({ onOpenModal }) => {
 
           <div className="testimonials-grid">
             {/* T Card 1 - Left Stagger */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50, x: -20 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
@@ -309,7 +309,7 @@ const Home = ({ onOpenModal }) => {
             </motion.div>
 
             {/* T Card 2 - Center Stagger */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -328,7 +328,7 @@ const Home = ({ onOpenModal }) => {
             </motion.div>
 
             {/* T Card 3 - Right Stagger */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50, x: 20 }}
               whileInView={{ opacity: 1, y: 0, x: 0 }}
               viewport={{ once: true }}
@@ -351,7 +351,7 @@ const Home = ({ onOpenModal }) => {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

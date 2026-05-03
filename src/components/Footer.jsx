@@ -62,16 +62,16 @@ const Footer = () => {
           <div className="nav-col">
             <h4>Navigate</h4>
             <Link to="/">Home</Link>
-            <Link to="/careers">Careers</Link>
+            <Link to="/courses">Courses</Link>
             <Link to="/about">About Us</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <div className="nav-col">
             <h4>Programs</h4>
-            <Link to="/careers">Design & Verification</Link>
-            <Link to="/careers">Physical Design</Link>
-            <Link to="/careers">Analog Design</Link>
-            <Link to="/careers">All Programs</Link>
+            <Link to="/courses">Design & Verification</Link>
+            <Link to="/courses">Physical Design</Link>
+            <Link to="/courses">Analog Design</Link>
+            <Link to="/courses">All Programs</Link>
           </div>
           <div className="nav-col">
             <h4>Stay Updated</h4>

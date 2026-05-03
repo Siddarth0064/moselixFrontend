@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import AdvisorModal from './components/AdvisorModal';
 import Home from './pages/Home';
 import About from './pages/About';
-import Careers from './pages/Careers';
+import Courses from './pages/Courses';
 import Contact from './pages/Contact';
 import './index.css';
 
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home onOpenModal={openModal} />} />
             <Route path="/about" element={<About />} />
-            <Route path="/careers" element={<Careers onOpenModal={openModal} />} />
+            <Route path="/courses" element={<Courses onOpenModal={openModal} />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

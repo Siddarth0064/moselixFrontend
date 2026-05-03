@@ -31,6 +31,7 @@ const Navbar = ({ onOpenModal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isCoursesPage = location.pathname === '/courses';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +42,7 @@ const Navbar = ({ onOpenModal }) => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isCoursesPage ? 'is-courses' : ''}`}>
       <div className="nav-container-full">
         <Link to="/" className="logo">
           <div className="logo-icon-chip">
@@ -60,7 +61,7 @@ const Navbar = ({ onOpenModal }) => {
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
           <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''} onClick={() => setIsOpen(false)}>Careers</Link>
+          <Link to="/courses" className={location.pathname === '/courses' ? 'active' : ''} onClick={() => setIsOpen(false)}>Courses</Link>
           <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={() => setIsOpen(false)}>About</Link>
           <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>Contact</Link>
         </div>
