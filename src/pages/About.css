@@ -6,8 +6,10 @@
 
 /* Specific height increase for About page hero */
 .about-page .hero {
-  min-height: 90vh;
-  padding: 140px 0 80px;
+  min-height: 45vh;
+  padding: 70px 0 120px; /* Tightened padding for a more compact view */
+  position: relative;
+  overflow: hidden;
 }
 
 .about-page .hero-text-content {
@@ -15,11 +17,75 @@
   /* Shift text bit left side */
 }
 
+/* Dropping Transition Effect - Absolute positioned inside Hero */
+.section-transition-dropping {
+  position: absolute;
+  bottom: -1px; /* Slight overlap to prevent gaps */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 10;
+}
+
+.section-transition-dropping svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+/* Stylish Floating Pills for Features */
+.about-page .hero-features-row {
+  border-top: none;
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.about-page .h-feat-item {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.about-page .h-feat-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  border-color: var(--primary-light);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-page .h-feat-icon-box {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.about-page .h-feat-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.about-page .h-feat-desc {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
 /* Faded Hero Image for About Page */
 .about-hero-visual {
   position: absolute;
   right: 0;
-  top: 140px;
+  top: 70px;
   transform: none;
   width: 45vw;
   height: 80%;
@@ -94,7 +160,7 @@
 
 /* --- About Details Sections (Story, Mission, Values) --- */
 .about-details {
-  background-color: var(--bg-section);
+  background-color: #FFFFFF;
   padding: 5rem 0;
 }
 
@@ -149,6 +215,11 @@
   font-weight: 700;
 }
 
+.story-image-wrapper {
+  position: relative;
+  padding-bottom: 40px; /* Space for the floating card on small screens */
+}
+
 .story-image {
   border-radius: 30px;
   overflow: hidden;
@@ -161,21 +232,26 @@
 }
 
 .quote-card {
-  background: #f0f4ff;
+  background: var(--white);
   border-radius: 24px;
-  padding: 3rem 4rem;
-  margin-top: 2rem;
-  position: relative;
-  text-align: center;
-  border-left: 4px solid var(--primary);
+  padding: 3rem 2.5rem;
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  max-width: 320px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-left: 6px solid var(--primary);
+  z-index: 10;
+  text-align: left;
 }
 
 .quote-card p {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.05rem !important;
+  font-weight: 600;
   color: #1f2937;
-  max-width: 800px;
-  margin: 0 auto;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
 }
 
 .quote-icon {
@@ -185,14 +261,26 @@
 }
 
 .quote-icon.start {
-  top: 1.5rem;
-  left: 1.5rem;
+  top: 1rem;
+  left: 1rem;
 }
 
 .quote-icon.end {
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1rem;
+  right: 1rem;
   transform: rotate(180deg);
+}
+
+@media (max-width: 992px) {
+  .quote-card {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    margin-top: -30px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 /* Mission Section */

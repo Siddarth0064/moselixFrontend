@@ -70,7 +70,16 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Dropping Section Transition - Now inside hero for perfect alignment */}
+        <div className="section-transition-dropping">
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M0 0C240 60 480 120 720 120C960 120 1200 60 1440 0V120H0V0Z" fill="#FFFFFF" />
+          </svg>
+        </div>
       </section>
+
+
 
       {/* About Moselix Details Section */}
       <section className="about-details">
@@ -86,12 +95,15 @@ const About = () => {
                 <p>We started this platform to bridge the gap between classroom learning and industry expectations. Today, Moselix is a community of learners, mentors and industry professionals working together to create future-ready engineers.</p>
                 <div className="signature">— Team Moselix</div>
               </div>
-              <div className="story-image">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
+              <div className="story-image-wrapper">
+                <div className="story-image">
+                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
+                </div>
                 <div className="quote-card">
-                  <Quote className="quote-icon end" size={32} fill="currentColor" />
+                  <Quote className="quote-icon end" size={24} fill="currentColor" />
                   <p>We don't just teach VLSI. We mentor, guide and walk with you until you achieve your dream.</p>
-                  <Quote className="quote-icon start" size={32} fill="currentColor" />
+                  <Quote className="quote-icon start" size={24} fill="currentColor" />
+
                 </div>
               </div>
             </div>

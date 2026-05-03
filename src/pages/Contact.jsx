@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, MessageSquare, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, MessageSquare, ArrowRight, Users } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -10,22 +10,57 @@ const Contact = () => {
         <div className="hero-decorations">
           <div className="dot-square top-right"></div>
           <div className="dot-square bottom-left"></div>
+          <div className="glow-blur purple"></div>
+          <div className="glow-blur blue"></div>
         </div>
-        <div className="container text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="hero-top-badge">GET IN TOUCH</span>
-            <h1 className="hero-main-title">
-              Let's Talk About <span className="gradient-text">Your Future.</span>
-            </h1>
-            <p className="hero-subtext">
-              Have questions about our VLSI programs or career paths? <br />
-              Our expert advisors are ready to help you navigate your journey.
-            </p>
-          </motion.div>
+        <div className="container">
+          <div className="contact-hero-grid">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="c-hero-text"
+            >
+              <span className="hero-top-badge">GET IN TOUCH</span>
+              <h1 className="hero-main-title">
+                Let's Talk About <br />
+                Your <span className="gradient-text">Future.</span>
+              </h1>
+              <p className="hero-subtext">
+                Have questions about our VLSI programs or career paths? <br />
+                Our expert advisors are ready to help you navigate your journey.
+              </p>
+              
+              <div className="hero-contact-quick">
+                <div className="q-item">
+                  <div className="q-icon"><MessageSquare size={18} /></div>
+                  <span>Expert guidance in 24h</span>
+                </div>
+                <div className="q-item">
+                  <div className="q-icon"><Users size={18} /></div>
+                  <span>1:1 Advisor support</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="c-hero-visual"
+            >
+              <div className="visual-container">
+                <img src="/contact_hero_v2.png" alt="Contact Support" className="floating-img" />
+                <div className="visual-accent-circle"></div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        {/* Smooth Symmetric Dip Transition */}
+        <div className="section-transition-smooth">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M0 0 C400 0 450 60 720 60 C990 60 1040 0 1440 0 V100 H0 Z" fill="#f8fafc" />
+          </svg>
         </div>
       </section>
 
@@ -33,9 +68,10 @@ const Contact = () => {
         <div className="container">
           <div className="contact-grid">
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
               className="contact-info-panel"
             >
               <div className="info-intro">
@@ -44,53 +80,55 @@ const Contact = () => {
               </div>
 
               <div className="info-cards-list">
-                <div className="contact-info-card">
+                <motion.div whileHover={{ scale: 1.02 }} className="contact-info-card">
                   <div className="icon-box"><Phone size={24} /></div>
                   <div className="card-details">
                     <h4>Call Us</h4>
                     <p>+91 7338046606</p>
                     <span>Mon - Fri, 9am - 6pm</span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="contact-info-card">
+                <motion.div whileHover={{ scale: 1.02 }} className="contact-info-card">
                   <div className="icon-box"><Mail size={24} /></div>
                   <div className="card-details">
                     <h4>Email Us</h4>
                     <p>contact@moselix.com</p>
                     <span>24/7 Support for Learners</span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="contact-info-card">
+                <motion.div whileHover={{ scale: 1.02 }} className="contact-info-card">
                   <div className="icon-box"><MapPin size={24} /></div>
                   <div className="card-details">
                     <h4>Visit Us</h4>
                     <p>VLSI Excellence Center</p>
                     <span>Bangalore, Karnataka, India</span>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              <div className="social-connect">
-                <h4>Follow Our Journey</h4>
-                <div className="social-icons">
-                  {/* Placeholder social icons or just text */}
-                  <span className="s-icon">LinkedIn</span>
-                  <span className="s-icon">Instagram</span>
-                  <span className="s-icon">YouTube</span>
+              <div className="contact-decor-image">
+                <img src="/contact_decor.png" alt="Support Team" />
+                <div className="decor-overlay">
+                  <p>"Our mission is to guide you to excellence."</p>
+                  <span>— Moselix Support Team</span>
                 </div>
               </div>
             </motion.div>
 
             <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="contact-form-panel"
             >
               <div className="form-card">
-                <h3>Send us a Message</h3>
+                <div className="form-header">
+                  <Send className="header-icon" size={24} />
+                  <h3>Send us a Message</h3>
+                </div>
                 <form className="modern-form" onSubmit={(e) => e.preventDefault()}>
                   <div className="form-row">
                     <div className="form-input-group">
@@ -119,9 +157,14 @@ const Contact = () => {
                     <textarea rows="4" placeholder="How can we help you achieve your VLSI goals?" required></textarea>
                   </div>
                   
-                  <button type="submit" className="submit-btn">
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    type="submit" 
+                    className="submit-btn"
+                  >
                     Send Message <Send size={18} />
-                  </button>
+                  </motion.button>
                 </form>
               </div>
             </motion.div>
@@ -131,7 +174,12 @@ const Contact = () => {
 
       <section className="location-section">
         <div className="container">
-          <div className="location-box">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="location-box"
+          >
             <div className="location-info">
               <h3>Find us in Bangalore</h3>
               <p>Our training center is located in the heart of India's Silicon Valley, easily accessible to all aspiring engineers.</p>
@@ -149,7 +197,7 @@ const Contact = () => {
                 title="Moselix Location"
               ></iframe>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

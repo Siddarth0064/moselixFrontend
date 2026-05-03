@@ -45,10 +45,15 @@ const Navbar = ({ onOpenModal }) => {
       <div className="nav-container-full">
         <Link to="/" className="logo">
           <div className="logo-icon-chip">
-            <ChipIcon />
+            <div className="icon-state default-state">
+              <ChipIcon />
+            </div>
+            <div className="icon-state hover-state">
+              <span className="m-logo">M</span>
+            </div>
           </div>
           <div className="logo-text">
-            <span className="brand">MOSELIX</span>
+            <span className="brand"><span className="m-hide">M</span>OSELIX</span>
             <span className="tagline">VLSI LEARNING PLATFORM</span>
           </div>
         </Link>

@@ -1,12 +1,32 @@
 /* Hero Section Redesign */
 .hero {
-  min-height: 70vh;
-  display: block; /* Changed from flex so padding dictates exact top position */
-  background-color: #0b0f19; /* Very dark blue from image */
+  min-height: 50vh;
+  display: block;
+  /* Changed from flex so padding dictates exact top position */
+  background-color: #0b0f19;
+  /* Very dark blue from image */
   color: var(--white);
-  padding: 90px 0 40px; /* Reduced padding */
+  padding: 60px 0 100px;
+  /* Minimized padding */
   overflow: hidden;
   position: relative;
+}
+
+/* Stylish Wave Transition - Absolute positioned inside Hero */
+.section-transition-wave {
+  position: absolute;
+  bottom: -1px;
+  /* Seamless overlap with the next section */
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 10;
+}
+
+.section-transition-wave svg {
+  width: 100%;
+  height: 90px;
+  display: block;
 }
 
 .hero-grid {
@@ -31,7 +51,8 @@
 }
 
 .hero-main-title {
-  font-size: 3.2rem; /* Slightly smaller for compactness */
+  font-size: 3.2rem;
+  /* Slightly smaller for compactness */
   line-height: 1.1;
   margin-bottom: 0.8rem;
   font-weight: 800;
@@ -140,10 +161,14 @@
 .hero-visual {
   position: absolute;
   right: 0;
-  top: 90px; /* Aligns with new padding-top */
-  width: 45vw; /* Takes 45% of screen width */
-  height: calc(100% - 130px); /* Height leaves room for padding */
-  max-height: 500px; /* Reduced max-height for better single-screen fit */
+  top: 120px;
+  /* Aligns with new padding-top */
+  width: 50vw;
+  /* Takes 50% of screen width */
+  height: calc(100% - 100px);
+  /* Height leaves room for padding */
+  max-height: 500px;
+  /* Increased max-height for better visibility */
   display: flex;
   justify-content: flex-end;
   /* Glowing drop-shadow to the clipped shape */
@@ -158,23 +183,34 @@
   background: linear-gradient(60deg, rgba(139, 92, 246, 1), rgba(167, 139, 250, 0.2), #ffffff, rgba(139, 92, 246, 0.8), rgba(167, 139, 250, 1));
   background-size: 300% 300%;
   animation: borderGlow 5s ease infinite;
-  padding-left: 4px; /* Only left animated border! Flush on top/bottom/right */
+  padding-left: 4px;
+  /* Only left animated border! Flush on top/bottom/right */
   /* The exact 'half pentagon' shape pointing left */
   clip-path: url(#heroMask);
 }
 
 @keyframes borderGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-workspace-img {
   position: absolute;
   top: 0;
   left: 4px;
-  width: calc(100% - 4px); /* Full width minus the 4px left border */
-  height: 100%; /* Full height */
+  width: calc(100% - 4px);
+  /* Full width minus the 4px left border */
+  height: 100%;
+  /* Full height */
   object-fit: cover;
   display: block;
   /* Same clip-path for the image slightly offset to reveal left border */
@@ -452,6 +488,7 @@
 .growth-purple {
   background-color: #f5f3ff;
 }
+
 .growth-purple .growth-card-title,
 .growth-purple .list-icon {
   color: #6d28d9;
@@ -460,6 +497,7 @@
 .growth-beige {
   background-color: #fdf8f5;
 }
+
 .growth-beige .growth-card-title,
 .growth-beige .list-icon {
   color: #b45309;
@@ -468,6 +506,7 @@
 .growth-green {
   background-color: #f0fdf4;
 }
+
 .growth-green .growth-card-title,
 .growth-green .list-icon {
   color: #047857;
@@ -475,19 +514,21 @@
 
 .growth-img {
   width: 100%;
-  height: 180px; /* Constrain image height */
+  height: 180px;
+  /* Constrain image height */
   margin-top: auto;
   display: block;
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .growth-img-container {
   position: relative;
   margin-top: auto;
-  height: 180px; /* Match img height to keep container tight */
+  height: 180px;
+  /* Match img height to keep container tight */
 }
 
 .growth-testimonial-box {
@@ -498,7 +539,7 @@
   bottom: 10px;
   left: 10px;
   right: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
@@ -538,7 +579,8 @@
 
 /* --- Learning to Industry Section --- */
 .industry-workflow {
-  background-color: #080b1a; /* Dark navy */
+  background-color: #080b1a;
+  /* Dark navy */
   color: #ffffff;
   padding: 4rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -586,12 +628,12 @@
   width: 45px;
   height: 45px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.8rem;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   color: #a78bfa;
 }
 
@@ -604,7 +646,8 @@
 
 .w-arrow {
   color: #6d28d9;
-  margin-top: 15px; /* Align with center of boxes */
+  margin-top: 15px;
+  /* Align with center of boxes */
   flex-shrink: 0;
   opacity: 0.7;
 }
@@ -638,10 +681,27 @@
   font-family: sans-serif;
 }
 
-.t-verilog { color: #a78bfa; }
-.t-modelsim { color: #3b82f6; background: white; width: 30px; height: 30px; border-radius: 4px; font-size: 1.2rem; }
-.t-linux { font-size: 1.8rem; } /* Penguin emoji */
-.t-git { color: #f97316; }
+.t-verilog {
+  color: #a78bfa;
+}
+
+.t-modelsim {
+  color: #3b82f6;
+  background: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.t-linux {
+  font-size: 1.8rem;
+}
+
+/* Penguin emoji */
+.t-git {
+  color: #f97316;
+}
 
 /* Custom Vivado Logo */
 .t-vivado {
@@ -649,6 +709,7 @@
   width: 28px;
   height: 28px;
 }
+
 .vivado-triangle {
   width: 0;
   height: 0;
@@ -657,9 +718,24 @@
   border-bottom: 14px solid #fbbf24;
   position: absolute;
 }
-.t1 { top: 0; left: 6px; border-bottom-color: #fbbf24; }
-.t2 { bottom: 0; left: 0; border-bottom-color: #a3e635; }
-.t3 { bottom: 0; right: 0; border-bottom-color: #ef4444; }
+
+.t1 {
+  top: 0;
+  left: 6px;
+  border-bottom-color: #fbbf24;
+}
+
+.t2 {
+  bottom: 0;
+  left: 0;
+  border-bottom-color: #a3e635;
+}
+
+.t3 {
+  bottom: 0;
+  right: 0;
+  border-bottom-color: #ef4444;
+}
 
 
 /* --- Companies Section --- */
@@ -694,13 +770,49 @@
   letter-spacing: -0.5px;
 }
 
-.c-synopsys { color: #6d28d9; font-family: sans-serif; text-transform: lowercase; font-variant: small-caps; }
-.c-cadence { color: #111827; font-family: serif; letter-spacing: 0; }
-.c-siemens { color: #059669; font-family: sans-serif; text-transform: uppercase; }
-.c-intel { color: #111827; font-family: sans-serif; font-weight: 800; letter-spacing: -1px; }
-.c-micron { color: #3b82f6; font-family: cursive; font-style: italic; }
-.c-qualcomm { color: #2563eb; font-family: sans-serif; }
-.c-amd { color: #111827; font-family: sans-serif; font-weight: 900; letter-spacing: 1px; }
+.c-synopsys {
+  color: #6d28d9;
+  font-family: sans-serif;
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+.c-cadence {
+  color: #111827;
+  font-family: serif;
+  letter-spacing: 0;
+}
+
+.c-siemens {
+  color: #059669;
+  font-family: sans-serif;
+  text-transform: uppercase;
+}
+
+.c-intel {
+  color: #111827;
+  font-family: sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.c-micron {
+  color: #3b82f6;
+  font-family: cursive;
+  font-style: italic;
+}
+
+.c-qualcomm {
+  color: #2563eb;
+  font-family: sans-serif;
+}
+
+.c-amd {
+  color: #111827;
+  font-family: sans-serif;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
 
 
 /* --- Testimonials Section --- */
@@ -735,7 +847,7 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
 }
@@ -789,7 +901,8 @@
 }
 
 .cta-card {
-  background: #1e1147; /* Dark purple base */
+  background: #1e1147;
+  /* Dark purple base */
   border-radius: 12px;
   color: var(--white);
   position: relative;
@@ -898,13 +1011,13 @@
     transform: rotate(90deg);
     margin: 0;
   }
-  
+
   .tools-list {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
   }
-  
+
   .companies-strip {
     justify-content: center;
   }

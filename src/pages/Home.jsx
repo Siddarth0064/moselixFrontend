@@ -85,6 +85,13 @@ const Home = ({ onOpenModal }) => {
             </div>
           </motion.div>
         </div>
+
+        {/* Stylish Wave Transition */}
+        <div className="section-transition-wave">
+          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 36.7C840 27 960 13 1080 16.7C1200 20 1320 40 1380 50L1440 60V90H1380C1320 90 1200 90 1080 90C960 90 840 90 720 90C600 90 480 90 360 90C240 90 120 90 60 90H0V0Z" fill="#F8FAFF" />
+          </svg>
+        </div>
       </section>
 
 
