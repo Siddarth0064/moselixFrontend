@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Download, ArrowRight, PlayCircle, BookOpen, Monitor, Terminal, Lightbulb, ShieldCheck, Cpu, Activity, Users, Code, Briefcase, MessageCircle } from 'lucide-react';
 import './Courses.css';
@@ -134,12 +134,12 @@ const Courses = ({ onOpenModal }) => {
           </motion.div>
         </div>
 
-        {/* Smooth Wave Transition - Fixed edge clipping */}
+        {/* Smooth Wave Transition - Using white fill to naturally mask the image */}
         <div className="section-transition">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
-            {/* The Fill Layer (No Stroke) */}
+            {/* The Fill Layer (No Stroke) - Sits on top of the image to 'cut' it */}
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill-only"></path>
-            {/* The Wave Line Layer (Stroke only, no closing lines) */}
+            {/* The Wave Line Layer (Stroke only) */}
             <path d="M0,27.35 A600.21,600.21,0,0,0,321.39,56.44 c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3" className="shape-stroke-only" fill="none"></path>
           </svg>
         </div>
@@ -186,7 +186,18 @@ const Courses = ({ onOpenModal }) => {
                     <h4>Learning Experience</h4>
                     <ul className="exp-list">
                       {content[activeTab].experience.map((item, i) => (
-                        <li key={i}><PlayCircle size={18} /> {item}</li>
+                        <li key={i}>
+                          {item.toLowerCase().includes('interactive') || item.toLowerCase().includes('classes') ? <Users size={18} /> :
+                            item.toLowerCase().includes('recorded') || item.toLowerCase().includes('video') ? <PlayCircle size={18} /> :
+                              item.toLowerCase().includes('labs') || item.toLowerCase().includes('practice') ? <Terminal size={18} /> :
+                                item.toLowerCase().includes('lms') || item.toLowerCase().includes('access') ? <ShieldCheck size={18} /> :
+                                  item.toLowerCase().includes('mentor') || item.toLowerCase().includes('review') ? <MessageCircle size={18} /> :
+                                    item.toLowerCase().includes('project') ? <Briefcase size={18} /> :
+                                      item.toLowerCase().includes('tool') ? <Cpu size={18} /> :
+                                        item.toLowerCase().includes('case') ? <Lightbulb size={18} /> :
+                                          <BookOpen size={18} />}
+                          {item}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -194,7 +205,7 @@ const Courses = ({ onOpenModal }) => {
 
                 <div className="action-btns">
                   <button className="btn-primary">Enroll Now <ArrowRight size={18} /></button>
-                  <button className="btn-outline"><Download size={18} /> Download Curriculum</button>
+                  <button className="btn-outline"><Download size={18} /> Download Brochure</button>
                 </div>
               </div>
 
@@ -347,6 +358,9 @@ const Courses = ({ onOpenModal }) => {
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
             className="cta-banner"
           >
+            {/* Decorative Dots */}
+            <div className="cta-dots left"></div>
+            <div className="cta-dots right"></div>
             <div className="cta-left">
               <div className="cta-icon-box">
                 <Lightbulb size={28} />

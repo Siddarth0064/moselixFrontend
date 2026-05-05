@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Lightbulb, Rocket, Shield, Heart, Zap, Globe, Users, Quote, BookOpen, Layers, Briefcase, Star } from 'lucide-react';
+import { Target, Rocket, Shield, Heart, Zap, Users, Quote, BookOpen, Layers, Briefcase, Star } from 'lucide-react';
 import './About.css';
 import './Home.css';
 import Bluebg from "../assets/Blue_hero_img.png"
@@ -72,11 +71,11 @@ const About = () => {
         </div>
 
         {/* Dropping Section Transition - Now inside hero for perfect alignment */}
-        <div className="section-transition-dropping">
+        {/* <div className="section-transition-dropping">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
             <path d="M0 0C240 60 480 120 720 120C960 120 1200 60 1440 0V120H0V0Z" fill="#FFFFFF" />
           </svg>
-        </div>
+        </div> */}
       </section>
 
 
@@ -88,7 +87,7 @@ const About = () => {
           {/* Our Story */}
           <div className="about-card home-story-section">
             <div className="home-story-grid">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -101,7 +100,7 @@ const About = () => {
                 <p>We started this platform to bridge the gap between classroom learning and industry expectations. Today, Moselix is a community of learners, mentors and industry professionals working together to create future-ready engineers.</p>
                 <div className="signature">— Team Moselix</div>
               </motion.div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -112,9 +111,10 @@ const About = () => {
                   <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
                 </div>
                 <div className="quote-card">
-                  <Quote className="quote-icon end" size={24} fill="currentColor" />
-                  <p>We don't just teach VLSI. We mentor, guide and walk with you until you achieve your dream.</p>
+                  {/* <Quote className="quote-icon end" size={24} fill="currentColor" /> */}
                   <Quote className="quote-icon start" size={24} fill="currentColor" />
+                  <p>We don't just teach VLSI. We mentor, guide and walk with you until you achieve your dream.</p>
+                  {/* <Quote className="quote-icon start" size={24} fill="currentColor" /> */}
 
                 </div>
               </motion.div>
@@ -124,7 +124,7 @@ const About = () => {
           {/* Our Mission */}
           <div className="about-card home-mission-section">
             <div className="home-mission-grid">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9, x: -30 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -133,7 +133,7 @@ const About = () => {
               >
                 <img src="/mission_visual.png" alt="Mission Target" />
               </motion.div>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -185,7 +185,7 @@ const About = () => {
                 { icon: <Star size={32} />, title: "Excellence", desc: "We strive for excellence in everything." },
                 { icon: <Users size={32} />, title: "Community", desc: "We grow together as a learning community." }
               ].map((value, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

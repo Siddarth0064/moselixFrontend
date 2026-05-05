@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Phone, Mail, User, MessageSquare } from 'lucide-react';
+import { X, Send, Phone, Mail, User, MessageSquare, ChevronDown, Headset } from 'lucide-react';
 import './AdvisorModal.css';
 
 const AdvisorModal = ({ isOpen, onClose }) => {
@@ -9,7 +8,7 @@ const AdvisorModal = ({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       <div className="modal-overlay" onClick={onClose}>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -17,12 +16,12 @@ const AdvisorModal = ({ isOpen, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <button className="close-btn" onClick={onClose}><X /></button>
-          
+
           <div className="modal-grid">
             <div className="modal-form-side">
               <div className="form-header">
                 <div className="advisor-avatar">
-                  <Phone size={24} />
+                  <Headset size={32} />
                 </div>
                 <div>
                   <h3>Talk to Advisor</h3>
@@ -45,17 +44,21 @@ const AdvisorModal = ({ isOpen, onClose }) => {
                 </div>
                 <div className="input-group">
                   <MessageSquare size={18} />
-                  <select required>
-                    <option value="" disabled selected>I'm interested in</option>
-                    <option value="design">Design & Verification</option>
-                    <option value="physical">Physical Design</option>
-                    <option value="analog">Analog Design</option>
-                  </select>
+                  <div className="select-wrapper">
+                    <select required>
+                      <option value="" disabled selected>I'm interested in</option>
+                      <option value="design">Design & Verification</option>
+                      <option value="physical">Physical Design</option>
+                      <option value="analog">Analog Design</option>
+                      <option value="guidance">Not sure (Need Guidance)</option>
+                    </select>
+                    <ChevronDown size={16} className="select-arrow" />
+                  </div>
                 </div>
                 <div className="input-group">
                   <textarea placeholder="How can we help you?" rows="3"></textarea>
                 </div>
-                
+
                 <button type="submit" className="btn-primary w-full">
                   Request Callback <Send size={18} />
                 </button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageSquareMore, User } from 'lucide-react';
 import './Navbar.css';
@@ -41,10 +41,15 @@ const Navbar = ({ onOpenModal }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isCoursesPage ? 'is-courses' : ''}`}>
       <div className="nav-container-full">
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={handleLinkClick}>
           <div className="logo-icon-chip">
             <div className="icon-state default-state">
               <ChipIcon />
@@ -60,10 +65,10 @@ const Navbar = ({ onOpenModal }) => {
         </Link>
 
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
-          <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/courses" className={location.pathname === '/courses' ? 'active' : ''} onClick={() => setIsOpen(false)}>Courses</Link>
-          <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={() => setIsOpen(false)}>About</Link>
-          <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={handleLinkClick}>Home</Link>
+          <Link to="/courses" className={location.pathname === '/courses' ? 'active' : ''} onClick={handleLinkClick}>Courses</Link>
+          <Link to="/about" className={location.pathname === '/about' ? 'active' : ''} onClick={handleLinkClick}>About</Link>
+          {/* <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={handleLinkClick}>Contact</Link> */}
         </div>
 
         <div className="nav-actions">

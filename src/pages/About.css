@@ -7,14 +7,32 @@
 /* Specific height increase for About page hero */
 .about-page .hero {
   min-height: 45vh;
-  padding: 70px 0 120px; /* Tightened padding for a more compact view */
+  padding: 40px 0 60px; /* Reduced for a more compact view */
   position: relative;
   overflow: hidden;
 }
 
+.about-page .hero-top-badge {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+.about-page .hero-main-title {
+  margin-bottom: 0.5rem;
+}
+
+.about-page .hero-subtext {
+  margin-bottom: 1rem;
+}
+
+.about-page .hero-stats-row {
+  margin-bottom: 1rem;
+}
+
 .about-page .hero-text-content {
   margin-left: -40px;
-  /* Shift text bit left side */
+  margin-top: 50px;
+  /* Shift text bit left side and push low */
 }
 
 /* Dropping Transition Effect - Absolute positioned inside Hero */
@@ -161,15 +179,15 @@
 /* --- About Details Sections (Story, Mission, Values) --- */
 .about-details {
   background-color: #FFFFFF;
-  padding: 5rem 0;
+  padding: 1.5rem 0;
 }
 
 .about-card {
   background: var(--white);
   border-radius: 32px;
-  padding: 3rem;
+  padding: 2.5rem;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.03);
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .about-card:last-child {

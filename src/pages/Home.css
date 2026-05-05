@@ -442,6 +442,7 @@
   font-weight: 800;
   margin-bottom: 0.5rem;
   color: #111827;
+  text-align: center;
 }
 
 .growth-highlight {
@@ -516,30 +517,78 @@
 
 /* Card Specific Themes */
 .growth-purple {
-  background-color: #f5f3ff;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border: 1px solid #ddd6fe;
+  box-shadow: 0 10px 30px rgba(109, 40, 217, 0.05);
 }
 
-.growth-purple .growth-card-title,
-.growth-purple .list-icon {
+.growth-purple .growth-card-title {
   color: #6d28d9;
 }
 
-.growth-beige {
-  background-color: #fdf8f5;
+.growth-purple .growth-card-desc {
+  color: #5b21b6;
+  opacity: 0.8;
 }
 
-.growth-beige .growth-card-title,
-.growth-beige .list-icon {
+.growth-purple .growth-list li {
+  color: #4c1d95;
+}
+
+.growth-purple .list-icon {
+  background-color: #6d28d9;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(109, 40, 217, 0.2);
+}
+
+.growth-beige {
+  background: linear-gradient(135deg, #fdf8f5 0%, #fff7ed 100%);
+  border: 1px solid #ffedd5;
+  box-shadow: 0 10px 30px rgba(180, 83, 9, 0.05);
+}
+
+.growth-beige .growth-card-title {
   color: #b45309;
 }
 
-.growth-green {
-  background-color: #f0fdf4;
+.growth-beige .growth-card-desc {
+  color: #92400e;
+  opacity: 0.8;
 }
 
-.growth-green .growth-card-title,
-.growth-green .list-icon {
+.growth-beige .growth-list li {
+  color: #78350f;
+}
+
+.growth-beige .list-icon {
+  background-color: #b45309;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2);
+}
+
+.growth-green {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #bbf7d0;
+  box-shadow: 0 10px 30px rgba(4, 120, 87, 0.05);
+}
+
+.growth-green .growth-card-title {
   color: #047857;
+}
+
+.growth-green .growth-card-desc {
+  color: #065f46;
+  opacity: 0.8;
+}
+
+.growth-green .growth-list li {
+  color: #064e3b;
+}
+
+.growth-green .list-icon {
+  background-color: #047857;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(4, 120, 87, 0.2);
 }
 
 .growth-img {
@@ -562,49 +611,53 @@
 }
 
 .growth-testimonial-box {
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1.5rem;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .quote-icon {
   font-family: serif;
-  font-size: 2rem;
+  font-size: 3.5rem;
   color: #047857;
   position: absolute;
-  top: 5px;
-  left: 10px;
+  top: -5px;
+  left: 8px;
   line-height: 1;
-  opacity: 0.8;
+  opacity: 0.15;
+  font-weight: 900;
 }
 
 .testimonial-text {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #374151;
-  margin-bottom: 0.5rem;
-  padding-left: 1.2rem;
-  line-height: 1.3;
+  color: #1f2937;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-author {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800;
   color: #111827;
   margin-bottom: 2px;
-  padding-left: 1.2rem;
 }
 
 .testimonial-role {
-  font-size: 0.65rem;
-  color: #6b7280;
-  padding-left: 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #047857;
 }
 
 /* --- Learning to Industry Section --- */
@@ -612,29 +665,35 @@
   background-color: #080b1a;
   /* Dark navy */
   color: #ffffff;
-  padding: 4rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .i-w-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.2fr auto 1fr;
   gap: 3rem;
   align-items: center;
 }
 
+.workflow-v-divider {
+  width: 1px;
+  height: 250px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
 .i-w-title {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
   line-height: 1.3;
 }
 
 .i-w-desc {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #a1a1aa;
   margin-top: -1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   line-height: 1.5;
 }
 
@@ -655,22 +714,22 @@
 }
 
 .w-icon-box {
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   background: rgba(255, 255, 255, 0.03);
   color: #a78bfa;
 }
 
 .w-step p {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   color: #d4d4d8;
-  line-height: 1.3;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -698,7 +757,7 @@
 }
 
 .tool-item span {
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   color: #a1a1aa;
 }
 
@@ -718,10 +777,10 @@
 .t-modelsim {
   color: #3b82f6;
   background: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 1.5rem;
 }
 
 .t-linux {
@@ -736,22 +795,22 @@
 /* Custom Vivado Logo */
 .t-vivado {
   position: relative;
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
 }
 
 .vivado-triangle {
   width: 0;
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 14px solid #fbbf24;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 19px solid #fbbf24;
   position: absolute;
 }
 
 .t1 {
   top: 0;
-  left: 6px;
+  left: 8px;
   border-bottom-color: #fbbf24;
 }
 
@@ -848,7 +907,7 @@
 /* --- Testimonials Section --- */
 .testimonials-section {
   background-color: #fafafa;
-  padding: 4rem 0 5rem;
+  padding: 1.5rem 0 2rem;
 }
 
 .t-main-title {

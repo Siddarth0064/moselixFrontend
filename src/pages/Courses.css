@@ -104,7 +104,7 @@
 }
 
 .shape-fill-only {
-  fill: #ffffff;
+  fill: var(--bg-light);
   stroke: none;
 }
 
@@ -158,11 +158,19 @@
   width: 100%;
   max-width: 1200px;
   height: auto;
+  margin-bottom: -120px;
+  /* Deep overlap with the wave */
+  position: relative;
+  z-index: 4;
+  /* Sits behind the section-transition (z-index 5) */
+  transform: translate(50px, 20px);
+  /* Pushed bit to the right and slightly up */
 }
 
 /* Path Selector */
 .path-selector {
-  padding: 2rem 0 3rem;
+  padding: 0rem 0 3rem;
+  background: var(--bg-light);
 }
 
 .tabs-container {
@@ -173,7 +181,7 @@
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   width: fit-content;
-  margin: 0 auto 3rem;
+  margin: 0 auto 12px;
   position: relative;
   overflow: visible;
 }
@@ -302,15 +310,35 @@
   border-top: 1px solid #f1f5f9;
 }
 
-.btn-outline {
-  border: 1px solid var(--primary);
-  color: var(--primary);
+.action-btns .btn-outline {
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  background: rgba(108, 58, 237, 0.05) !important;
   padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 12px;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.action-btns .btn-outline svg {
+  color: var(--primary) !important;
+  stroke: var(--primary) !important;
+}
+
+.action-btns .btn-outline:hover {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(108, 58, 237, 0.2);
+}
+
+.action-btns .btn-outline:hover svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 .side-content {
@@ -428,7 +456,7 @@
 
 /* Comparison */
 .comparison-section {
-  padding: 5rem 0;
+  padding: 1rem 0;
   background: #fff;
 }
 
@@ -440,7 +468,7 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .comparison-title .dots {
@@ -604,7 +632,7 @@
 
 /* Features Section: Learn. Practice. Succeed. */
 .features-section {
-  padding: 3rem 0;
+  padding: 1rem 0;
   background: #fff;
 }
 
@@ -612,7 +640,8 @@
   font-size: 2rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .features-title .underline {
@@ -696,20 +725,84 @@
 
 /* Bottom CTA Update */
 .bottom-cta {
-  padding: 3rem 0 5rem;
+  padding: 1rem 0 3rem;
   background: #fff;
 }
 
 .cta-banner {
   background: #fcfaff;
   border: 1px solid #f3e8ff;
-  border-radius: 16px;
-  padding: 2rem 3rem;
+  border-radius: 20px;
+  padding: 3rem 6rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4rem;
   position: relative;
   overflow: hidden;
+}
+
+.cta-dots {
+  position: absolute;
+  width: 60px; /* 5 dots * 12px */
+  height: 60px;
+  background-image: radial-gradient(circle, var(--primary) 2.5px, transparent 0);
+  background-size: 12px 12px;
+  opacity: 0.25;
+  z-index: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cta-dots.left {
+  left: 20px;
+}
+
+.cta-dots.right {
+  right: 20px;
+}
+
+.cta-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+}
+
+.cta-icon-box {
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border: 1px solid #f3e8ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  box-shadow: 0 10px 20px rgba(108, 58, 237, 0.1);
+  flex-shrink: 0;
+}
+
+.cta-text-box {
+  text-align: left;
+}
+
+.cta-text-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.cta-text-box p {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 500px;
+}
+
+.cta-right {
+  flex-shrink: 0;
 }
 
 /* Subtle dot pattern background for CTA */

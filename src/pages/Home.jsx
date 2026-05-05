@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Book, Box, TrendingUp, Layers, Users, GraduationCap, Cpu, Terminal, Code, Quote, Target, Shield, Heart, UserCheck, BookOpen, Briefcase } from 'lucide-react';
+import { ArrowRight, Star, Users, Cpu, Code, UserCheck, BookOpen, Briefcase, Check } from 'lucide-react';
 import './Home.css';
 
 const Home = ({ onOpenModal }) => {
@@ -114,10 +113,10 @@ const Home = ({ onOpenModal }) => {
                 <h3 className="growth-card-title">Advanced<br />Learning System</h3>
                 <p className="growth-card-desc">A complete online learning environment built for VLSI learners.</p>
                 <ul className="growth-list purple-list">
-                  <li><UserCheck className="list-icon" size={16} /> Structured learning paths</li>
-                  <li><UserCheck className="list-icon" size={16} /> Live + recorded sessions</li>
-                  <li><UserCheck className="list-icon" size={16} /> Assignments & practice</li>
-                  <li><UserCheck className="list-icon" size={16} /> Progress tracking</li>
+                  <li><Check className="list-icon" size={16} /> Structured learning paths</li>
+                  <li><Check className="list-icon" size={16} /> Live + recorded sessions</li>
+                  <li><Check className="list-icon" size={16} /> Assignments & practice</li>
+                  <li><Check className="list-icon" size={16} /> Progress tracking</li>
                 </ul>
               </div>
               <img src="/moselix_learning_system.png" alt="Learning System" className="growth-img" />
@@ -135,9 +134,9 @@ const Home = ({ onOpenModal }) => {
                 <h3 className="growth-card-title">Expert<br />Coaching</h3>
                 <p className="growth-card-desc">Learn directly from engineers working in real VLSI projects.</p>
                 <ul className="growth-list beige-list">
-                  <li><UserCheck className="list-icon" size={16} /> 1:1 doubt support</li>
-                  <li><UserCheck className="list-icon" size={16} /> Code reviews</li>
-                  <li><UserCheck className="list-icon" size={16} /> Real-world guidance</li>
+                  <li><Check className="list-icon" size={16} /> 1:1 doubt support</li>
+                  <li><Check className="list-icon" size={16} /> Code reviews</li>
+                  <li><Check className="list-icon" size={16} /> Real-world guidance</li>
                 </ul>
               </div>
               <img src="/moselix_expert_coaching.png" alt="Expert Coaching" className="growth-img" />
@@ -155,10 +154,10 @@ const Home = ({ onOpenModal }) => {
                 <h3 className="growth-card-title">Career<br />Support</h3>
                 <p className="growth-card-desc">We guide you at every step until you're placed.</p>
                 <ul className="growth-list green-list">
-                  <li><UserCheck className="list-icon" size={16} /> Resume building</li>
-                  <li><UserCheck className="list-icon" size={16} /> Interview preparation</li>
-                  <li><UserCheck className="list-icon" size={16} /> Career direction</li>
-                  <li><UserCheck className="list-icon" size={16} /> Lifetime placement support</li>
+                  <li><Check className="list-icon" size={16} /> Resume building</li>
+                  <li><Check className="list-icon" size={16} /> Interview preparation</li>
+                  <li><Check className="list-icon" size={16} /> Career direction</li>
+                  <li><Check className="list-icon" size={16} /> Lifetime placement support</li>
                 </ul>
               </div>
 
@@ -189,26 +188,28 @@ const Home = ({ onOpenModal }) => {
             <h3 className="i-w-title">From learning to industry</h3>
             <div className="workflow-flow">
               <div className="w-step">
-                <div className="w-icon-box"><BookOpen size={24} /></div>
+                <div className="w-icon-box"><BookOpen size={32} /></div>
                 <p>Build strong<br />fundamentals</p>
               </div>
-              <ArrowRight className="w-arrow" size={16} />
+              <ArrowRight className="w-arrow" size={20} />
               <div className="w-step">
-                <div className="w-icon-box"><Code size={24} /></div>
+                <div className="w-icon-box"><Code size={32} /></div>
                 <p>Practice with<br />guided assignments</p>
               </div>
-              <ArrowRight className="w-arrow" size={16} />
+              <ArrowRight className="w-arrow" size={20} />
               <div className="w-step">
-                <div className="w-icon-box"><Cpu size={24} /></div>
+                <div className="w-icon-box"><Cpu size={32} /></div>
                 <p>Work on real<br />world projects</p>
               </div>
-              <ArrowRight className="w-arrow" size={16} />
+              <ArrowRight className="w-arrow" size={20} />
               <div className="w-step">
-                <div className="w-icon-box"><UserCheck size={24} /></div>
+                <div className="w-icon-box"><UserCheck size={32} /></div>
                 <p>Prepare for interviews<br />& opportunities</p>
               </div>
             </div>
           </motion.div>
+
+          <div className="workflow-v-divider"></div>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -221,7 +222,7 @@ const Home = ({ onOpenModal }) => {
             <p className="i-w-desc">Work with tools used in real<br />semiconductor workflows.</p>
             <div className="tools-list">
               <div className="tool-item">
-                <div className="tool-logo t-verilog"><Code size={20} /></div>
+                <div className="tool-logo t-verilog"><Code size={24} /></div>
                 <span>Verilog</span>
               </div>
               <div className="tool-item">
@@ -242,7 +243,7 @@ const Home = ({ onOpenModal }) => {
               </div>
               <div className="tool-item">
                 <div className="tool-logo t-git">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
                 </div>
                 <span>Git</span>
               </div>
