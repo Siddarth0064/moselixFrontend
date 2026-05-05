@@ -53,50 +53,67 @@
 
 /* Stylish Floating Pills for Features */
 .about-page .hero-features-row {
-  border-top: none;
   display: flex;
-  gap: 1.2rem;
+  gap: 2.5rem;
   margin-top: 3.5rem;
   flex-wrap: wrap;
 }
 
 .about-page .h-feat-item {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 0.8rem 1.5rem;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  min-width: 140px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .about-page .h-feat-item:hover {
-  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-5px);
-  border-color: var(--primary-light);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-page .h-feat-icon-box {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 15px rgba(108, 58, 237, 0.2);
+  position: relative;
+}
+
+/* The "Vertical Line" between items */
+.about-page .h-feat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1.25rem; /* Center the divider in the gap */
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.about-page .h-feat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .about-page .h-feat-title {
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: white;
 }
 
 .about-page .h-feat-desc {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  opacity: 0.6;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 /* Faded Hero Image for About Page */

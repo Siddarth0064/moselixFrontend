@@ -846,61 +846,71 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  max-width: 1000px;
+  flex-wrap: nowrap; /* Forces single line */
+  width: 100%;
   margin: 0 auto;
+  gap: 3rem; /* Generous gap for wide screens */
+  padding: 0 1rem;
+  overflow-x: auto; /* Allow horizontal scroll if they don't fit */
+  scrollbar-width: none; /* Hide scrollbar for clean look */
+}
+
+.companies-strip::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
 .c-logo {
-  font-weight: 900;
-  font-size: 1.4rem;
-  opacity: 0.8;
-  letter-spacing: -0.5px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: all 0.3s ease;
+  flex-shrink: 0; /* Prevents logos from shrinking in the flex container */
 }
 
-.c-synopsys {
-  color: #6d28d9;
-  font-family: sans-serif;
-  text-transform: lowercase;
-  font-variant: small-caps;
-}
-
-.c-cadence {
-  color: #111827;
-  font-family: serif;
-  letter-spacing: 0;
-}
-
-.c-siemens {
-  color: #059669;
-  font-family: sans-serif;
-  text-transform: uppercase;
-}
-
-.c-intel {
-  color: #111827;
-  font-family: sans-serif;
-  font-weight: 800;
-  letter-spacing: -1px;
+.c-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .c-micron {
-  color: #3b82f6;
-  font-family: cursive;
-  font-style: italic;
+  height: 42px; /* Slightly smaller height because it's very wide, but enough to be visible */
+}
+
+.c-logo svg {
+  height: 100%;
+  width: auto;
+  max-width: 180px;
+}
+
+.c-synopsys {
+  /* No extra styles needed, using SVG fill */
+}
+
+.c-cadence {
+  /* No extra styles needed */
+}
+
+.c-siemens {
+  /* No extra styles needed */
+}
+
+.c-intel {
+  /* No extra styles needed */
+}
+
+.c-micron {
+  /* No extra styles needed */
 }
 
 .c-qualcomm {
-  color: #2563eb;
-  font-family: sans-serif;
+  /* No extra styles needed */
 }
 
 .c-amd {
-  color: #111827;
-  font-family: sans-serif;
-  font-weight: 900;
-  letter-spacing: 1px;
+  color: #000000;
+  fill: currentColor;
 }
 
 

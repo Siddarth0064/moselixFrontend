@@ -35,21 +35,23 @@ const About = () => {
 
             <div className="hero-features-row">
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Target size={20} /></div>
+                <div className="h-feat-icon-box"><Target size={24} /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Learn</span>
                   <span className="h-feat-desc">In-depth learning</span>
                 </div>
               </div>
+              
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Zap size={20} /></div>
+                <div className="h-feat-icon-box"><Zap size={24} /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Build</span>
                   <span className="h-feat-desc">Real projects</span>
                 </div>
               </div>
+
               <div className="h-feat-item">
-                <div className="h-feat-icon-box"><Rocket size={20} /></div>
+                <div className="h-feat-icon-box"><Rocket size={24} /></div>
                 <div className="h-feat-text">
                   <span className="h-feat-title">Grow</span>
                   <span className="h-feat-desc">Career support</span>
