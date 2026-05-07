@@ -18,7 +18,6 @@
   width: 100%;
   max-width: 760px;
   border-radius: 24px;
-  overflow: hidden;
   position: relative;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
 }
@@ -107,11 +106,37 @@
   appearance: none;
 }
 
-.select-wrapper {
+.custom-select-container {
+  position: relative;
+  overflow: visible; /* Ensure dropdown can escape container */
+}
+
+.custom-select-container.active {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.1);
+}
+
+.custom-select-wrapper {
   position: relative;
   width: 100%;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  padding: 0.2rem 0;
+}
+
+.selected-value {
+  font-size: 0.95rem;
+  color: #9ca3af; /* Placeholder color */
+  font-weight: 400;
+  width: 100%;
+  user-select: none;
+}
+
+.selected-value.has-value {
+  color: #111827;
+  font-weight: 500;
 }
 
 .select-arrow {
@@ -119,12 +144,54 @@
   right: 0;
   pointer-events: none;
   color: #9ca3af;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-group:focus-within .select-arrow {
+.select-arrow.open {
   color: var(--primary);
   transform: rotate(180deg);
+}
+
+.custom-options {
+  position: absolute;
+  top: calc(100% + 15px); /* Position just below the input group */
+  left: -40px; /* Counter-act input-group padding */
+  width: calc(100% + 55px);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid #f3f4f6;
+  z-index: 1000;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.custom-option {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  color: #374151;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.custom-option:hover {
+  background: #f5f3ff;
+  color: var(--primary);
+}
+
+.custom-option.selected {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.check-icon {
+  color: #ffffff;
 }
 
 .w-full { 
@@ -151,6 +218,12 @@
   background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
 }
 
+.success-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2) !important;
+  pointer-events: none;
+}
+
 .form-footer {
   font-size: 0.65rem;
   color: #9ca3af;
@@ -164,6 +237,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 
 .info-illustration img {

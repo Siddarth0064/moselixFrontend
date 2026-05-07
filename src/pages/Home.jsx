@@ -218,7 +218,7 @@ const Home = ({ onOpenModal }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="workflow-tools-col"
           >
-            <h3 className="i-w-title">Learn using<br />industry-standard tools</h3>
+            <h3 className="i-w-title">Learn using industry-standard tools</h3>
             <p className="i-w-desc">Work with tools used in real<br />semiconductor workflows.</p>
             <div className="tools-list">
               <div className="tool-item">

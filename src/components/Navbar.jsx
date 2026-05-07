@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageSquareMore, User } from 'lucide-react';
+import LoginModal from './LoginModal';
 import './Navbar.css';
 
 const ChipIcon = () => (
@@ -29,6 +30,7 @@ const ChipIcon = () => (
 
 const Navbar = ({ onOpenModal }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isCoursesPage = location.pathname === '/courses';
@@ -76,7 +78,7 @@ const Navbar = ({ onOpenModal }) => {
             <MessageSquareMore size={18} />
             <span>Talk to Advisor</span>
           </button>
-          <button className="btn-user-login" aria-label="Login">
+          <button className="btn-user-login" aria-label="Login" onClick={() => setIsLoginModalOpen(true)}>
             <User size={18} />
             <span>Login</span>
           </button>
@@ -85,6 +87,7 @@ const Navbar = ({ onOpenModal }) => {
           </button>
         </div>
       </div>
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </nav>
   );
 };

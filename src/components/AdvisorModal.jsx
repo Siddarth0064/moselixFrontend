@@ -1,8 +1,78 @@
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Phone, Mail, User, MessageSquare, ChevronDown, Headset } from 'lucide-react';
+import { X, Send, Phone, Mail, User, MessageSquare, ChevronDown, Headset, Check } from 'lucide-react';
 import './AdvisorModal.css';
 
 const AdvisorModal = ({ isOpen, onClose }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedInterest, setSelectedInterest] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const interests = [
+    { value: "design", label: "Design & Verification" },
+    { value: "physical", label: "Physical Design" },
+    { value: "analog", label: "Analog Design" },
+    { value: "guidance", label: "Not sure (Need Guidance)" }
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // REPLACE THIS URL with your actual Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwJs7v83T6YcYSr3HjUPlfXFtf344LfRERrLvTIOq90uc3ScPWl0t38sCGTF_8Yedq94A/exec";
+
+    try {
+      const interestLabel = selectedInterest
+        ? interests.find(i => i.value === selectedInterest)?.label
+        : "Not specified";
+
+      const payload = {
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interested: interestLabel,
+        remarks: formData.message
+      };
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload)
+      });
+
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      setSelectedInterest("");
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        onClose();
+      }, 3000);
+
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -29,38 +99,66 @@ const AdvisorModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <form className="advisor-form">
+              <form className="advisor-form" onSubmit={handleSubmit}>
                 <div className="input-group">
                   <User size={18} />
-                  <input type="text" placeholder="Full Name" required />
+                  <input type="text" name="name" placeholder="Full Name" required value={formData.name} onChange={handleChange} />
                 </div>
                 <div className="input-group">
                   <Mail size={18} />
-                  <input type="email" placeholder="Email Address" required />
+                  <input type="email" name="email" placeholder="Email Address" required value={formData.email} onChange={handleChange} />
                 </div>
                 <div className="input-group">
                   <Phone size={18} />
-                  <input type="tel" placeholder="Phone Number" required />
+                  <input type="tel" name="phone" placeholder="Phone Number" required value={formData.phone} onChange={handleChange} />
                 </div>
-                <div className="input-group">
+                <div className={`input-group custom-select-container ${isDropdownOpen ? 'active' : ''}`}>
                   <MessageSquare size={18} />
-                  <div className="select-wrapper">
-                    <select required>
-                      <option value="" disabled selected>I'm interested in</option>
-                      <option value="design">Design & Verification</option>
-                      <option value="physical">Physical Design</option>
-                      <option value="analog">Analog Design</option>
-                      <option value="guidance">Not sure (Need Guidance)</option>
-                    </select>
-                    <ChevronDown size={16} className="select-arrow" />
+                  <div className="custom-select-wrapper" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                    <div className={`selected-value ${selectedInterest ? 'has-value' : ''}`}>
+                      {selectedInterest ? interests.find(i => i.value === selectedInterest)?.label : "I'm interested in..."}
+                    </div>
+                    <ChevronDown size={16} className={`select-arrow ${isDropdownOpen ? 'open' : ''}`} />
+
+                    <input type="hidden" name="interest" value={selectedInterest} required />
+
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          className="custom-options"
+                          initial={{ opacity: 0, y: 10, scaleY: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                          exit={{ opacity: 0, y: 10, scaleY: 0.95 }}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          style={{ transformOrigin: "top" }}
+                        >
+                          {interests.map(option => (
+                            <div
+                              key={option.value}
+                              className={`custom-option ${selectedInterest === option.value ? 'selected' : ''}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedInterest(option.value);
+                                setIsDropdownOpen(false);
+                              }}
+                            >
+                              <span>{option.label}</span>
+                              {selectedInterest === option.value && <Check size={16} className="check-icon" />}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
                 <div className="input-group">
-                  <textarea placeholder="How can we help you?" rows="3"></textarea>
+                  <textarea name="message" placeholder="How can we help you?" rows="3" value={formData.message} onChange={handleChange}></textarea>
                 </div>
 
-                <button type="submit" className="btn-primary w-full">
-                  Request Callback <Send size={18} />
+                <button type="submit" className={`btn-primary w-full ${isSuccess ? 'success-btn' : ''}`} disabled={isSubmitting || isSuccess}>
+                  {isSubmitting ? "Sending..." : isSuccess ? "Sent Successfully!" : (
+                    <>Request Callback <Send size={18} /></>
+                  )}
                 </button>
                 <p className="form-footer">We respect your privacy. Your information is safe with us.</p>
               </form>

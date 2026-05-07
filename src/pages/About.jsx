@@ -3,7 +3,8 @@ import { Target, Rocket, Shield, Heart, Zap, Users, Quote, BookOpen, Layers, Bri
 import './About.css';
 import './Home.css';
 import Bluebg from "../assets/Blue_hero_img.png"
-
+import TeamImg from "../../public/About_2ns_sec_pic.jpeg";
+import Goal from "../../public/About_3rd_sec_pic.jpeg";
 const About = () => {
   return (
     <div className="about-page">
@@ -41,7 +42,7 @@ const About = () => {
                   <span className="h-feat-desc">In-depth learning</span>
                 </div>
               </div>
-              
+
               <div className="h-feat-item">
                 <div className="h-feat-icon-box"><Zap size={24} /></div>
                 <div className="h-feat-text">
@@ -110,14 +111,15 @@ const About = () => {
                 className="story-image-wrapper"
               >
                 <div className="story-image">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" />
+                  <img src={TeamImg} alt="Team Collaboration" />
                 </div>
                 <div className="quote-card">
-                  {/* <Quote className="quote-icon end" size={24} fill="currentColor" /> */}
-                  <Quote className="quote-icon start" size={24} fill="currentColor" />
-                  <p>We don't just teach VLSI. We mentor, guide and walk with you until you achieve your dream.</p>
-                  {/* <Quote className="quote-icon start" size={24} fill="currentColor" /> */}
-
+                  <p>
+                    {/* <Quote className="quote-icon start" size={20} fill="var(--primary)" /> */}
+                    <Quote className="quote-icon end" size={20} fill="var(--primary)" />
+                    We don't just teach VLSI. We mentor, guide and walk with you until you achieve your dream.
+                    <Quote className="quote-iconend end" size={20} fill="var(--primary)" />
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -133,7 +135,7 @@ const About = () => {
                 transition={{ duration: 0.8 }}
                 className="mission-visual"
               >
-                <img src="/mission_visual.png" alt="Mission Target" />
+                <img src={Goal} alt="Mission Target" />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -177,7 +179,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="section-label">OUR VALUES</span>
-              <h2>The Principles That Drive <br /> Everything We Do.</h2>
+              <h2>The Principles That Drive Everything We Do.</h2>
             </motion.div>
 
             <div className="home-values-grid">

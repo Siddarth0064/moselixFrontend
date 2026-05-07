@@ -7,7 +7,8 @@
 /* Specific height increase for About page hero */
 .about-page .hero {
   min-height: 45vh;
-  padding: 40px 0 60px; /* Reduced for a more compact view */
+  padding: 40px 0 60px;
+  /* Reduced for a more compact view */
   position: relative;
   overflow: hidden;
 }
@@ -30,7 +31,8 @@
 }
 
 .about-page .hero-text-content {
-  margin-left: -40px;
+  margin-left: 0;
+  padding-left: 5%;
   margin-top: 50px;
   /* Shift text bit left side and push low */
 }
@@ -38,7 +40,8 @@
 /* Dropping Transition Effect - Absolute positioned inside Hero */
 .section-transition-dropping {
   position: absolute;
-  bottom: -1px; /* Slight overlap to prevent gaps */
+  bottom: -1px;
+  /* Slight overlap to prevent gaps */
   left: 0;
   width: 100%;
   line-height: 0;
@@ -91,7 +94,8 @@
 .about-page .h-feat-item:not(:last-child)::after {
   content: '';
   position: absolute;
-  right: -1.25rem; /* Center the divider in the gap */
+  right: -1.25rem;
+  /* Center the divider in the gap */
   top: 15%;
   height: 70%;
   width: 1px;
@@ -252,58 +256,92 @@
 
 .story-image-wrapper {
   position: relative;
-  padding-bottom: 40px; /* Space for the floating card on small screens */
+  padding-bottom: 40px;
+  /* Space for the floating card on small screens */
 }
 
 .story-image {
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(108, 58, 237, 0.15);
+  height: 250px;
 }
 
 .story-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 .quote-card {
-  background: var(--white);
+  background: linear-gradient(135deg, #ffffff, #fcfaff);
   border-radius: 24px;
-  padding: 3rem 2.5rem;
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  max-width: 320px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem;
+  position: relative;
+  margin-top: 1.5rem;
+  box-shadow: 0 20px 40px rgba(108, 58, 237, 0.08);
   border-left: 6px solid var(--primary);
   z-index: 10;
   text-align: left;
 }
 
 .quote-card p {
-  font-size: 1.05rem !important;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #1f2937;
-  line-height: 1.6;
+  line-height: 1;
   margin: 0;
   font-style: italic;
+  display: inline;
 }
 
 .quote-icon {
-  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
   color: var(--primary);
-  opacity: 0.15;
+  opacity: 0.8;
+  margin: 23px 8px;
+  transition: all 0.3s ease;
+}
+
+.quote-iconend {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--primary);
+  opacity: 0.8;
+  margin: 0 12px;
+  transition: all 0.3s ease;
 }
 
 .quote-icon.start {
-  top: 1rem;
-  left: 1rem;
+  transform: translateY(-8px);
 }
 
 .quote-icon.end {
-  bottom: 1rem;
-  right: 1rem;
-  transform: rotate(180deg);
+  transform: translateY(8px) rotate(180deg);
+}
+
+.quote-iconend.end {
+  transform: translateY(8px);
+}
+
+.quote-card:hover .quote-icon {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+.quote-card:hover .quote-iconend {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+.quote-card:hover .quote-icon.end {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.quote-card:hover .quote-iconend.end {
+  transform: scale(1.1);
 }
 
 @media (max-width: 992px) {
@@ -319,10 +357,14 @@
 }
 
 /* Mission Section */
+.home-mission-section {
+  background-color: #ecebfd;
+}
+
 .home-mission-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 30% 70%;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -331,7 +373,7 @@
 }
 
 .mission-visual img {
-  width: 90%;
+  width: 100%;
   max-height: 380px;
   object-fit: cover;
   /* Changed from contain to ensure radius clips the content */
@@ -339,7 +381,6 @@
   margin: 0 auto;
   border-radius: 24px;
   filter: drop-shadow(0 20px 40px rgba(108, 58, 237, 0.2));
-  animation: floatMission 6s ease-in-out infinite;
 }
 
 @keyframes floatMission {
@@ -505,6 +546,32 @@
 
   .about-hero h1 {
     font-size: 2.5rem;
+  }
+
+  .about-page .hero-text-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 15px;
+  }
+
+  .about-page .hero-features-row {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page .hero {
+    padding-top: 60px;
+  }
+
+  .about-hero-visual {
+    display: none;
+    /* Hide visual on small mobile to give text more space if needed, or keep it but adjust */
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
   }
 }
 
